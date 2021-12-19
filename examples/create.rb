@@ -7,7 +7,7 @@ bb = BBTickets.new(
 )
 
 numero_convenio = 3128557
-system_identifier = "0000003337"
+system_identifier = "0000003338"
 params = {
   "numeroConvenio": numero_convenio,
   "dataVencimento": (Time.now + (60 * 60 * 24 * 5)).strftime('%d.%m.%Y'),

@@ -40,7 +40,9 @@ class BBTickets
       },
       query: {
         "gw-dev-app-key" => developer_application_key
-      }
+      },
+      verify: false,
+      verify_peer: false
     }
 
     # Config HTTParty to ignore validation of SSL certificate
@@ -190,7 +192,7 @@ class BBTickets
     check_authentication
 
     options = @http_options.clone
-    options[:query].merge!({ numeroConvenio: numero_convenio })
+    options.merge!({ body: { numeroConvenio: numero_convenio }.to_json })
 
     response = HTTParty.post("#{base_url_by_enviroment}/boletos/#{id}/baixar", options)
 
